@@ -1,0 +1,29 @@
+
+<project name="Project 2" default="compile">    
+<target name="compile" depends = "clean">       
+<javac srcdir="."/>    
+</target>
+
+
+<target name="clean">
+    <delete>          
+		<fileset dir="." includes="**/*.class, "/>      
+    </delete> 
+</target> 
+
+<target name = "authors">
+<echo message = "Ricardo Rigodon"/>
+
+</target>
+
+<target name = "run" depends="compile, authors">
+   <java classname="Driver" fork="true"/>
+</target>
+
+  
+<target name= "jar" depends= "compile , clean ">
+	<jar destfile="./Project2.jar" basedir="." excludes="output.txt, **/*.class "  />
+</target>	
+
+</project>
+
